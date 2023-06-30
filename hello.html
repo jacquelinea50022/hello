@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Number Game </title>
+
+    <h1> Time to order numbers!</h1>
+    <p> Input your numbers </p>
+
+</head>
+<body>
+
+<input type="integer" id="number1">
+<input type="integer" id="number2">
+<input type="integer" id="number3">
+<button onclick="sortNumbers()">Order Numbers</button>
+<p id="Result"></p>
+
+<script>
+function sortNumbers(){
+  let number1 = parseFloat(document.getElementById("number1").value);
+  let number2 = parseFloat(document.getElementById("number2").value);
+  let number3 = parseFloat(document.getElementById("number3").value);
+
+  let least, middle, greatest;
+
+  if (number1 > number2 && number1 > number3) {
+        greatest = number1;
+        if (number2 > number3) {
+          middle = number2;
+          least = number3;
+        } else {
+          middle = number3;
+          least = number2;
+        }
+      } else if (number2 > number1 && number2 > number3) {
+        greatest = number2;
+        if (number1 > number3) {
+          middle = number1;
+          least = number3;
+        } else {
+          middle = number3;
+          least = number1;
+        }
+      } else {
+        greatest = number3;
+        if (number1 > number2) {
+          middle = number1;
+          least = number2;
+        } else {
+          middle = number2;
+          least = number1;
+        }
+      }
+ document.getElementById("Result").innerHTML="Ordered Numbers: " + least + ", " + middle + ", " + greatest;
+  }
+  let inputFields = document.querySelectorAll('input');
+  input.addEventListener('keydown', function(event) {
+        if (event.keyCode === 13) {
+          sortNumbers();
+        }
+      });
+  </script>
+</body>
+</html>
